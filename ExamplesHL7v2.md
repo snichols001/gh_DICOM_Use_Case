@@ -20,17 +20,17 @@ This maps to DICOM Modality Worklist as follows:
 | PID-8                                | Patient's Sex                 | (0010,0040) | CS | F                                                           |
 |                                      | Patient’s Gender              | (0010,xxxx) | CS | M                                                           |
 |                                      | Gender Identity Sequence      | (0010,xxxx) | SQ |                                                             |
-|                                      | \>Gender Code                 | (0010,xxx4) | SQ |                                                             |
+|                                      | \>Gender Code Sequence        | (0010,xxx4) | SQ |                                                             |
 | GSP-5-1                              | \>\>Code Value                | (0008,0100) | SH | 446151000124109                                             |
 | GSP-5-3                              | \>\>Coding Scheme Designator  | (0008,0102) | SH | SCT                                                         |
-| GSP-5-2                              | \>\>Code Meaning              | (0008,0104) | LO | Identifies as male gender|
+| GSP-5-2                              | \>\>Code Meaning              | (0008,0104) | LO | Identifies as male gender                                   |
 |                                      | \>Validity Period sequence    | (0010,xxx5) | SQ |                                                             |
 |                                      | \>\>Start DateTime            | (0010,xxx6) | DT |                                                             |
 |                                      | \>\>Stop DateTime             | (0010,xxx7) | DT |                                                             |
 |                                      | \>Gender Comment              | (0010,xxx8) | LT |                                                             |
 |                                      | Sex Comment                   | (0010,xxx1) | LT |                                                             |
 |                                      | Sex for Clinical Use Sequence | (0010,xxx2) | SQ |                                                             |
-|                                      | \>SFCU Code                   | (0010,xxx9) | SQ |                                                             |
+|                                      | \>SFCU Code Sequence          | (0010,xxx9) | SQ |                                                             |
 | GSC-4-1                              | \>\>Code Value                | (0008,0100) | SH | 248152002                                                   |
 | GSC-4-3                              | \>\>Coding Scheme Designator  | (0008,0102) | SH | SCT                                                         |
 | GSC-4-2                              | \>\>Code Meaning              | (0008,0104) | LO | Female                                                      |
@@ -39,13 +39,16 @@ This maps to DICOM Modality Worklist as follows:
 |                                      | \>\>Stop DateTime             | (0010,xxx7) | DT |                                                             |
 | GSC-8                                | \>SFCU Comment                | (0010,xxx1) | LT | Hormonal treatment, use affirmed gender Cr reference ranges |
 |                                      | \>SFCU Reference              | (0010,xx10) | UR |                                                             |
-|                                      | Patient Names to Use Sequence | (0010,xxx3) | SQ |                                                             |
-| PID-5 Name Type Code = Customary     | \>Name                        | (0010,xx12) | LT | Smith, John                                                   |
+|                                      | Person Names to Use Sequence  | (0010,xxx3) | SQ |                                                             |
+| PID-5 Name Type Code = Customary     | \>Name to use                 | (0010,xx12) | LT | Smith, John                                                 |
 |                                      | \>Validity Period Sequence    | (0010,xxx5) | SQ |                                                             |
 |                                      | \>\>Start DateTime            | (0010,xxx6) | DT | 20220715090000                                              |
 |                                      | \>\>Stop DateTime             | (0010,xxx7) | DT |                                                             |
 |                                      | \>Name to Use Comment         | (0010,xx13) | LT |                                                             |
-| PID-8 (based on local mapping rules) | Sex Assigned at Birth         | (0010,xx25) | CS | F                                                           |
+| PID-8 (based on local mapping rules) | Sex at Birth Code Sequence    | (0010,xx25) | CS | F                                                           |
+|                                      | \>\>Code Value                | (0008,0100) | SH | 248152002                                                   |
+|                                      | \>\>Coding Scheme Designator  | (0008,0102) | SH | SCT                                                         |
+|                                      | \>\>Code Meaning              | (0008,0104) | LO | Female                                                      |
 
 # Example 02: Patient Name Update
 
@@ -70,17 +73,17 @@ This maps to DICOM Modality Worklist as follows:
 | PID-8                                | Patient's Sex                 | (0010,0040) | CS | F                                                           |
 |                                      | Patient’s Gender              | (0010,xxxx) | CS | M                                                           |
 |                                      | Gender Identity Sequence      | (0010,xxxx) | SQ |                                                             |
-|                                      | \>Gender Code                 | (0010,xxx4) | SQ |                                                             |
+|                                      | \>Gender Code Sequence        | (0010,xxx4) | SQ |                                                             |
 | GSP-5-1                              | \>\>Code Value                | (0008,0100) | SH | 446151000124109                                             |
 | GSP-5-3                              | \>\>Coding Scheme Designator  | (0008,0102) | SH | SCT                                                         |
-| GSP-5-2                              | \>\>Code Meaning              | (0008,0104) | LO | Identifies as male gender|
+| GSP-5-2                              | \>\>Code Meaning              | (0008,0104) | LO | Identifies as male gender                                   |
 |                                      | \>Validity Period sequence    | (0010,xxx5) | SQ |                                                             |
 |                                      | \>\>Start DateTime            | (0010,xxx6) | DT | 20220715010000                                              |
 |                                      | \>\>Stop DateTime             | (0010,xxx7) | DT |                                                             |
 |                                      | \>Gender Comment              | (0010,xxx8) | LT |                                                             |
 |                                      | Sex Comment                   | (0010,xxx1) | LT |                                                             |
 |                                      | Sex for Clinical Use Sequence | (0010,xxx2) | SQ |                                                             |
-|                                      | \>SFCU Code                   | (0010,xxx9) | SQ |                                                             |
+|                                      | \>SFCU Code  Sequence         | (0010,xxx9) | SQ |                                                             |
 | GSC-4-1                              | \>\>Code Value                | (0008,0100) | SH | 248152002                                                   |
 | GSC-4-3                              | \>\>Coding Scheme Designator  | (0008,0102) | SH | SCT                                                         |
 | GSC-4-2                              | \>\>Code Meaning              | (0008,0104) | LO | Female                                                      |
@@ -89,13 +92,16 @@ This maps to DICOM Modality Worklist as follows:
 |                                      | \>\>Stop DateTime             | (0010,xxx7) | DT |                                                             |
 | GSC-8                                | \>SFCU Comment                | (0010,xxx1) | LT | Hormonal treatment, use affirmed gender Cr reference ranges |
 |                                      | \>SFCU Reference              | (0010,xx10) | UR |                                                             |
-|                                      | Patient Names to Use Sequence | (0010,xxx3) | SQ |                                                             |
-|                                      | \>Name                        | (0010,xx12) | LT |                                                             |
+|                                      | Person Names to Use Sequence  | (0010,xxx3) | SQ |                                                             |
+|                                      | \>Name to use                 | (0010,xx12) | LT |                                                             |
 |                                      | \>Validity Period Sequence    | (0010,xxx5) | SQ |                                                             |
 |                                      | \>\>Start DateTime            | (0010,xxx6) | DT | 20220715009000                                              |
 |                                      | \>\>Stop DateTime             | (0010,xxx7) | DT |                                                             |
 |                                      | \>Name to Use Comment         | (0010,xx13) | LT |                                                             |
-| PID-8 (based on local mapping rules) | Sex Assigned at Birth         | (0010,xx25) | CS | F                                                           |
+| PID-8 (based on local mapping rules) | Sex at Birth Code Sequence    | (0010,xx25) | CS | F                                                           |
+|                                      | \>\>Code Value                | (0008,0100) | SH | 248152002                                                   |
+|                                      | \>\>Coding Scheme Designator  | (0008,0102) | SH | SCT                                                         |
+|                                      | \>\>Code Meaning              | (0008,0104) | LO | Female                                                      |
 
 # Example 05: Imaging Report
 
