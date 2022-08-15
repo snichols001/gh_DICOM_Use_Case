@@ -35,4 +35,4 @@ The patient is referenced as the subject of DiagnosticReport,DocumentReference, 
 | Patient.gender (based on local mapping)  | Sex at Birth Code Sequence    | (0010,xx25) | CS | F                                                           |
 |                                          | \>\>Code Value                | (0008,0100) | SH | 248152002                                                   |
 |                                          | \>\>Coding Scheme Designator  | (0008,0102) | SH | SCT                                                         |
-|                                          | \>\>Code Meaning              | (0008,0104) | LO | Female
+|                                          | \>\>Code Meaning              | (0008,0104) | LO | Female                                                      |
