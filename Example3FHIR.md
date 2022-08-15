@@ -33,6 +33,6 @@ The patient is referenced as the subject of DiagnosticReport,DocumentReference, 
 |                                          | \>\>Stop DateTime             | (0010,xxx7) | DT |                                                             |
 |                                          | \>Name to Use Comment         | (0010,xx13) | LT |                                                             |
 | Patient.gender (based on local mapping)  | Sex at Birth Code Sequence    | (0010,xx25) | CS | F                                                           |
-|                                          | \>\>Code Value                | (0008,0100) | SH | 248152002                                                   |
-|                                          | \>\>Coding Scheme Designator  | (0008,0102) | SH | SCT                                                         |
-|                                          | \>\>Code Meaning              | (0008,0104) | LO | Female                                                      |
+| code                                     | \>\>Code Value                | (0008,0100) | SH | 248152002                                                   |
+| system                                   | \>\>Coding Scheme Designator  | (0008,0102) | SH | SCT                                                         |
+| display                                  | \>\>Code Meaning              | (0008,0104) | LO | Female                                                      |
