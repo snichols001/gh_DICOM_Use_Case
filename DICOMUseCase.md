@@ -35,7 +35,7 @@ Public comment, based on this use case is sought on the following Open Issues:
 
 8.  Are there updates that should be considered for the DICOM attribute, Confidentiality constraint on patient data (0040,3001) VR=LO, to support local confidentiality approaches that may be applied to transgender demographics changes?
 
-9.  Should name to use be PT or LT VR? A patient, may want to be referred to as “Commander Bob”.
+9.  Should name to use be PN or LT VR? A patient, may want to be referred to as “Commander Bob”.
 
 10. In this Use Case, a single ADT message is created to communicate the patient name change. Is the order of the repeating elements in PID-5 significant? Should there be one ADT message or two (i.e. one message to communicate the new name, a second message to flag the old name as "NOUSE")?
 
