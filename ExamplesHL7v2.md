@@ -1,6 +1,6 @@
 # Example 01: Imaging Order
 
-Below is a HL7 v2.9.1 OMI Imaging Order for the DICOM Use Case.
+Below is a HL7 v2.9.1 OMI Imaging Order for the [DICOM Use Case](http://build.fhir.org/ig/HL7/fhir-gender-harmony/branches/main/dicom_use_case.html).
 
 ```
 MSH|^~\&|||||20220715090000||OMI^O23|WSA5mY0UBuCGrytRTAFR8UWJ|P|2.9.1

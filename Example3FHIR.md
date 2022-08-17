@@ -1,6 +1,6 @@
 # Example 03: FHIR 
 
-The patient is referenced as the subject of DiagnosticReport,DocumentReference, ImagingStudy or ImagingSelection. Mapping to DICOM is as follows:
+The patient in the [DICOM Use Case](http://build.fhir.org/ig/HL7/fhir-gender-harmony/branches/main/dicom_use_case.html) is referenced as the subject of DiagnosticReport,DocumentReference, ImagingStudy or ImagingSelection. Mapping to DICOM is as follows:
 
 | FHIR attribute                           | Attribute Name                | TAG         | VR | Value                                                       |
 | ---------------------------------------- | ----------------------------- | ----------- | -- | ----------------------------------------------------------- |

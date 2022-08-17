@@ -1,5 +1,5 @@
 # Example 04: CDA Release 2 Imaging Report
-
+Below is a CDA Imaging Report example for the [DICOM Use Case](http://build.fhir.org/ig/HL7/fhir-gender-harmony/branches/main/dicom_use_case.html).
 
 ```
 <?xml version="1.0"?>
