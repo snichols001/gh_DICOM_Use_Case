@@ -2,7 +2,7 @@
 
 ## Note to Balloters
 
-This use case is illustrative of how ancillary systems in imaging, downstream from the EHR, are likely to consume and create evidence documents in response to Sex and Gender encoding. In this case, there are three instances of Sex For Clinical Use (SFCU). First, the ordering physicians provides instructions for interpreting lab values within a Sex for Clinical Use comment. In the second SFCU, an Artifical Intelligence (AI) application utilizes the Sex Assigned at Birth for the basis of reference values. Third, the radiologist determines the appropriate sex to use basted on the patient's body composition for a Standard Uptake Value (SUV) calculation.
+This use case is illustrative of how ancillary systems in imaging, downstream from the EHR, are likely to consume and create evidence documents in response to Sex and Gender encoding. In this case, there are three instances of Sex For Clinical Use (SFCU). First, the ordering physicians provides instructions for interpreting lab values within a Sex for Clinical Use comment. In the second SFCU, an Artifical Intelligence (AI) application utilizes the Sex Assigned at Birth for the basis of reference values. Third, the radiologist determines the appropriate sex to use based on the patient's body composition for a Standard Uptake Value (SUV) calculation.
 The DICOM (Digital Imaging and COmmunications in Medicine) attributes in this use case are not normative, and details in DICOM are still being defined. If interested in participating in development of DICOM Sex and Gender encoding please contact the [DICOM Secretariat](mailto:dicom@dicomstandard.org).
 
 Public comment, based on this use case is sought on the following Open Issues:
@@ -35,7 +35,7 @@ Public comment, based on this use case is sought on the following Open Issues:
 
 8.  Are there updates that should be considered for the DICOM attribute, Confidentiality constraint on patient data (0040,3001) VR=LO, to support local confidentiality approaches that may be applied to transgender demographics changes?
 
-9.  Should name to use be PT or LT VR? A patient, may want to be referred to as “Commander Bob”.
+9.  Should name to use be PN or LT VR? A patient, may want to be referred to as “Commander Bob”.
 
 10. In this Use Case, a single ADT message is created to communicate the patient name change. Is the order of the repeating elements in PID-5 significant? Should there be one ADT message or two (i.e. one message to communicate the new name, a second message to flag the old name as "NOUSE")?
 
