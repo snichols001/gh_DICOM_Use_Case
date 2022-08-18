@@ -1,0 +1,116 @@
+@startuml
+actor "John Smith" as patient
+actor "Referring Physician" as referring
+actor "Facility Clerk" as clerk
+actor "Technologist" as tech
+actor Radiologist as radiologist
+actor "Recovery Nurse" as nurse
+entity "PET/CT Modality" as pet
+entity "EHR" as EHR
+entity "PACS/RIS/MWL" as PACS
+entity "State Dose Repository" as dose
+
+group prior to patient arrival (pre-conditions)
+referring -> EHR : place order
+note right: Example 01
+clerk <-> patient : pre-register
+clerk -> EHR : obtain insurance authorization
+EHR -> PACS : retrieve priors based on order
+radiologist -> EHR : assign protocol based on order
+end
+
+group patient arrives 
+patient -> clerk : arrival
+end
+
+group Patient in waiting area (x.1.6.1)
+patient -> clerk : announces name
+activate clerk #Salmon
+clerk <-> EHR : find appointment(s)
+clerk -> patient : Ask for identity information
+patient -> clerk : Provide identity details
+clerk <-> EHR : Find patient appointment
+clerk <-> patient : choose name change process
+clerk -> EHR : Update patient demographics
+activate EHR #Salmon
+EHR -> clerk : Demographics update scheduled
+EHR -> EHR : Update Demographics
+clerk -> tech : Notify arrival and new information
+note right
+The local procedure is to defer demographics updates
+for patients that are in the exam process.
+
+The exam will proceed using personal communication with
+staff about pending demographics changes.
+
+Demographics changes will be applied when the exam
+is completed and the report delivered.
+end note
+deactivate clerk
+activate tech #Salmon
+
+tech -> EHR : Checks appointment order
+note right: See Example 01
+tech -> EHR : Checks lab results
+tech -> patient : Greet patient
+end
+
+group patient in exam room (x.1.6.2, x.1.6.3)
+tech <-> patient : patient interview
+EHR -> PACS : patient demographics update
+activate PACS #Salmon
+note right: Example 02
+deactivate EHR
+activate pet #FFBBBB
+tech -> tech : Prep patient
+activate radiologist #DarkSalmon
+tech <-> radiologist : confer on protocol changes
+deactivate radiologist
+pet -> PACS : request MWL (demographics, order, etc.)
+PACS -> pet : receive MWL (demographics, order, etc.)
+deactivate PACS
+tech -> pet : adjust protocol
+tech -> pet : Ready for exam
+activate pet #DarkSalmon
+pet -> pet : Perform exam
+pet -> PACS : transfer images
+activate PACS #Salmon
+pet -> PACS : transfer dose info as RDSR
+PACS -> dose : transfer dose info as RDSR
+deactivate pet
+deactivate PACS
+deactivate pet
+deactivate tech
+end
+
+group patient in Recovery Room
+nurse <-> patient : Nurse monitors recovery
+activate nurse #Salmon
+nurse -> PACS : Update status
+nurse -> patient : Release patient
+deactivate nurse
+end
+
+
+group patient leaves
+PACS -> radiologist : Exam to be read
+activate radiologist #Salmon
+end
+
+group dictate Diagnostic Report (x.1.6.4)
+radiologist -> PACS : performs measurements &\n dictates report narrative
+activate PACS #Salmon
+radiologist -> PACS : Finished report
+PACS -> EHR : Finished report
+deactivate radiologist
+activate EHR #Salmon
+PACS -> PACS : apply deferred demographics update\nto this exam
+PACS -> EHR : final procedure status &\nreport and images available \nfor referring clinician
+PACS -> dose : Log exposure data
+deactivate PACS
+EHR -> referring : Notify referring that \nreport and images are ready
+deactivate EHR
+note right: Examples 3 (FHIR), 4 (V2), and 5 (CDA)
+end
+
+@enduml
