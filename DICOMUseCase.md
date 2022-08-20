@@ -111,7 +111,7 @@ Use case covers admission, patient prep, examination, recovery, post processing 
 
 ## Workflow/Storyboard:
 
-![](media/gh-dicom-singlepage.svg)
+![](media/gh-dicom-2.svg)
 
 Figure 1 Workflow Storyboard
 
@@ -175,7 +175,7 @@ Note: The pre-identified protocol was based on a female patient (see item [8 in 
 
 4.  The technologist starts an IV, administers radiotracer, and connects the contrast injector for the contrast-enhanced CT portion of the procedure.
 
-5.  The exam is performed.
+5.  The study is performed.
 
 6.  During administration of iodinated CT contrast, the patient complained of nausea. The technologist notifies the departmental nurse, who agrees to monitor the patient for an allergic reaction after the procedure.
 
@@ -388,14 +388,13 @@ Below is a CDA [Imaging Report](#reporting) example.
 	Version: 1.0
 	Revision History: 
 	31-Jan-2011 source document created
-	10-Aug-2022 example drafted [Jay Lyle, JP Systems for the VHA; 
+	19-Aug-2022 example drafted [Jay Lyle, JP Systems for the VHA; 
 								Rob Horn, Fairhaven Technology; 
-								Steven Nichols, GE]
+								Steven Nichols, GE Healthcare]
 -->
 
-<ClinicalDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns="urn:hl7-org:v3" xmlns:mif="urn:hl7-org:v3/mif"
-	xmlns:voc="urn:hl7-org:v3/voc"
+<ClinicalDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3"
+	xmlns:mif="urn:hl7-org:v3/mif" xmlns:voc="urn:hl7-org:v3/voc"
 	xsi:schemaLocation="urn:hl7-org:v3 CDA.xsd">
 	<!-- 	
 
@@ -730,25 +729,25 @@ Social History Section
 							</thead>
 							<tbody>
 								<tr>
-									<td ID="gender_narrative">Gender Identity</td>
-									<td ID="gender_value">Identifies as male gender</td>
+									<td>Gender Identity</td>
+									<td>Identifies as male gender</td>
 									<td/>
 									<td/>
 									<td/>
 								</tr>
 								<tr>
-									<td ID="pronoun_narrative1">Pronouns</td>
-									<td ID="pronoun_value1">He, Him, His, Himself</td>
+									<td>Pronouns</td>
+									<td>He, Him, His, Himself</td>
 									<td/>
 									<td/>
 									<td/>
 								</tr>
 								<tr>
-									<td ID="rsog_narrative1">Recorded Sex or Gender</td>
-									<td ID="rsog_value1">Female</td>
-									<td ID="rsog_kind_value1">Sex Assigned at Birth</td>
-									<td ID="rsog_jurisdiction_value1">California</td>
-									<td ID="rsog_acquired_value1">201201011450+0600</td>
+									<td>Recorded Sex or Gender</td>
+									<td>Female</td>
+									<td>Sex Assigned at Birth</td>
+									<td>California</td>
+									<td>201201011450+0600</td>
 								</tr>
 							</tbody>
 						</table>
@@ -759,17 +758,10 @@ Social History Section
 							<templateId root="2.16.840.1.113883.10.15.1" extension="2022-09-01"/>
 							<code code="76691-5" codeSystem="2.16.840.1.113883.6.1"
 								displayName="Gender Identity"/>
-							<text>
-								<reference value="#gender_narrative"/>
-							</text>
 							<statusCode code="completed"/>
 							<value xsi:type="CD" codeSystem="2.16.840.1.113883.6.96"
 								codeSystemName="SNOMED CT" code="446151000124109"
-								displayName="Identifies as male gender">
-								<originalText>
-									<reference value="#gender_value"/>
-								</originalText>
-							</value>
+								displayName="Identifies as male gender"> </value>
 						</observation>
 					</entry>
 					<entry>
@@ -792,14 +784,8 @@ Social History Section
 								displayName="Recorded sex or gender"/>
 							<derivationExpr>Enter whether the infant is male, female, or if the sex
 								of the infant is ambiguous, enter “unknown.”</derivationExpr>
-							<text>
-								<reference value="#rsog_narrative1"/>
-							</text>
 							<statusCode code="completed"/>
 							<value xsi:type="CD" code="F">
-								<originalText>
-									<reference value="rsog_value1"/>
-								</originalText>
 								<translation code="F" codeSystem="2.16.840.1.113883.11.19756"
 									codeSystemName="International Civil Aviation Organization Sex or Gender"
 									displayName="Female"/>
@@ -885,21 +871,18 @@ End of Reason for study Section
 							<templateId root="2.16.840.1.113883.10.20.6.2.12"/>
 							<code code="121060" codeSystem="1.2.840.10008.2.16.4"
 								codeSystemName="DCM" displayName="History"/>
-							<value xsi:type="ED">
-								<reference value="#Fndng1"/>
-							</value>
+							<value xsi:type="ED"> History text </value>
 						</observation>
 					</entry>
-<!-- ***************************************************************************
-					Supporting information for Sex for Clinical Use
-                     This is not likely to appear in a PET/CT report
-                     but is provided to illustrate the use of the 
-                     supporting reference.
+					<!--*****************************************************************************
+This Substance Administration is supporting information for Sex for Clinical Use. It 
+is not likely to appear in a PET/CT report but is provided to illustrate the use of 
+the supporting reference.
 *****************************************************************************-->
 					<entry>
 						<substanceAdministration classCode="SBADM" moodCode="EVN">
 							<!-- ** Medication Activity (V2) ** -->
-							<templateId root="2.16.840.1.113883.10.20.22.4.16" 
+							<templateId root="2.16.840.1.113883.10.20.22.4.16"
 								extension="2014-06-09"/>
 							<id root="6C844C75-AA34-411C-B7BD-5E4A9F206E29"/>
 							<statusCode code="active"/>
@@ -910,13 +893,14 @@ End of Reason for study Section
 							<consumable>
 								<manufacturedProduct classCode="MANU">
 									<!-- ** Medication information ** -->
-									<templateId root="2.16.840.1.113883.10.20.22.4.23" 
+									<templateId root="2.16.840.1.113883.10.20.22.4.23"
 										extension="2014-06-09"/>
 									<id root="2a620155-9d11-439e-92b3-5d9815ff4ee8"/>
 									<manufacturedMaterial>
-										<code code="403922"  
-											displayName="168 HR estradiol 0.00156 MG/HR Transdermal System" 
-											codeSystem="2.16.840.1.113883.6.88" codeSystemName="RxNorm"/>
+										<code code="403922"
+											displayName="168 HR estradiol 0.00156 MG/HR Transdermal System"
+											codeSystem="2.16.840.1.113883.6.88"
+											codeSystemName="RxNorm"/>
 									</manufacturedMaterial>
 								</manufacturedProduct>
 							</consumable>
@@ -929,7 +913,7 @@ End of Reason for study Section
                     End of History Section
 **********************************************************************
 -->
-				<!--
+			<!--
 **********************************************************************
                      Imaging Procedure Description Section
 **********************************************************************
@@ -945,18 +929,18 @@ End of Reason for study Section
 						<table border="1" width="100%" cellpadding="0" cellspacing="0">
 							<tbody>
 								<tr>
-									<td ID="sfcu_narrative">Sex For Clinical Use</td>
-									<td ID="sfcu_value">Female</td>
+									<td>Sex For Clinical Use</td>
+									<td>Female</td>
 								</tr>
 								<tr>
-									<td ID="Technique1">Imaging Technique</td>
-									<td ID="Technique1OriginalText">The patient is a transgender
-										male, undergoing hormonal treatment. Based on physician
-										instructions, affirmed gender creatinine reference ranges
-										were confirmed to be within normal values prior to the
-										administration of non-ionic iodinated contrast agent.. CT
-										images for attenuation correction and anatomic localization
-										followed by PET images were obtained..</td>
+									<td>Imaging Technique</td>
+									<td>The patient is a transgender male, undergoing hormonal
+										treatment. Based on physician instructions, affirmed gender
+										creatinine reference ranges were confirmed to be within
+										normal values prior to the administration of non-ionic
+										iodinated contrast agent.. CT images for attenuation
+										correction and anatomic localization followed by PET images
+										were obtained..</td>
 								</tr>
 							</tbody>
 						</table>
@@ -964,43 +948,37 @@ End of Reason for study Section
 					<entry>
 						<procedure moodCode="EVN" classCode="PROC">
 							<id root="1.2.840.10213.2.62.7044785528.999999999"/>
-							<code code="78814" displayName="Positron emission tomography (PET) with concurrently acquired 
-								computed tomography (CT)" codeSystem="2.16.840.1.113883.6.12" codeSystemName="CPT4"/>
+							<code code="78814"
+								displayName="Positron emission tomography (PET) with concurrently acquired 
+								computed tomography (CT)"
+								codeSystem="2.16.840.1.113883.6.12" codeSystemName="CPT4"/>
+							<!--*****************************************************************************
+This is the first instance of Sex for Clinical Use. It is a subentry of the PET scan 
+procedure for which  it is relevant.
+*****************************************************************************-->
 							<entryRelationship typeCode="COMP">
-									<observation classCode="OBS" moodCode="EVN">
-										<templateId root="2.16.840.1.113883.10.15.3"
-											extension="2022-09-01"/>
-										<code code="99501-9" codeSystem="2.16.840.1.113883.6.1"
-											displayName="Sex for clinical use"/>
-										<text>
-											<reference value="#sfcu_narrative"/>
-										</text>
-										<statusCode code="completed"/>
-										<value xsi:type="CD"
-											codeSystem="2.16.840.1.113883.4.642.1.983"
-											codeSystemName="Sex For Clinical Use" code="female"
-											displayName="Female sex for clinical use">
-											<originalText>
-												<reference value="#sfcu_value"/>
-											</originalText>
-										</value>
-										<!--
-*********************************************************************
-                     Supporting Reference for Sex for Clinical Use - 
-                     This is not likely to appear in a PET/CT report
-                     but is provided to illustrate the use of the 
-                     supporting reference.
-*********************************************************************
--->
-										<entryRelationship typeCode="SPRT">
-											<act classCode="ACT" moodCode="EVN">
-												<templateId root="2.16.840.1.113883.10.20.22.4.122"/>
-												<id root="6C844C75-AA34-411C-B7BD-5E4A9F206E29"/>
-												<code nullFlavor="OTH" codeSystem="NP"/>
-												<statusCode code="completed"/>
-											</act>
-										</entryRelationship>
-									</observation>
+								<observation classCode="OBS" moodCode="EVN">
+									<templateId root="2.16.840.1.113883.10.15.3"
+										extension="2022-09-01"/>
+									<code code="99501-9" codeSystem="2.16.840.1.113883.6.1"
+										displayName="Sex for clinical use"/>
+									<statusCode code="completed"/>
+									<value xsi:type="CD" codeSystem="2.16.840.1.113883.4.642.1.983"
+										codeSystemName="Sex For Clinical Use" code="female"
+										displayName="Female sex for clinical use"> </value>
+									<!--*****************************************************************************
+This is reference points to supporting information for Sex for Clinical Use. It is 
+the basis on which the SFCU is assigned.
+*****************************************************************************-->
+									<entryRelationship typeCode="SPRT">
+										<act classCode="ACT" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.22.4.122"/>
+											<id root="6C844C75-AA34-411C-B7BD-5E4A9F206E29"/>
+											<code nullFlavor="OTH" codeSystem="NP"/>
+											<statusCode code="completed"/>
+										</act>
+									</entryRelationship>
+								</observation>
 							</entryRelationship>
 
 						</procedure>
@@ -1008,7 +986,7 @@ End of Reason for study Section
 					</entry>
 				</section>
 			</component>
-				<!--							
+			<!--							
 **********************************************************************
                     End of Imaging Procedure Description Section
 **********************************************************************
@@ -1075,10 +1053,11 @@ End of Reason for study Section
 											codeSystem="2.16.840.1.113883.6.8" codeSystemName="UCUM"
 											codeSystemVersion="1.5"/>
 									</value>
-<!-- ***********************************************************************************
-							Second SFCU observation to support SUV interpretation
-************************************************************************************** -->									
-									<entryRelationship typeCode="COMP">
+									<!--*****************************************************************************
+This Substance Administration is supporting information for Sex for Clinical Use. It 
+is not likely to appear in a PET/CT report but is provided to illustrate the use of 
+the supporting reference.
+*****************************************************************************-->									<entryRelationship typeCode="COMP">
 										<observation classCode="OBS" moodCode="EVN">
 											<templateId root="2.16.840.1.113883.10.15.3"
 												extension="2022-09-01"/>
@@ -1088,11 +1067,10 @@ End of Reason for study Section
 											<value xsi:type="CD"
 												codeSystem="2.16.840.1.113883.4.642.1.983"
 												codeSystemName="Sex For Clinical Use" code="male"
-												displayName="Male sex for clinical use">
-											</value>
+												displayName="Male sex for clinical use"> </value>
 										</observation>
 									</entryRelationship>
-									
+
 									<!-- inferred from image -->
 									<entryRelationship typeCode="SUBJ">
 										<observation classCode="DGIMG" moodCode="EVN">
@@ -1115,36 +1093,36 @@ End of Reason for study Section
 											<!-- Referenced Frames -->
 											<entryRelationship typeCode="COMP">
 												<observation classCode="ROIBND" moodCode="EVN">
-												<templateId root="2.16.840.1.113883.10.20.6.2.10"/>
-												<code code="121190"
+													<templateId root="2.16.840.1.113883.10.20.6.2.10"/>
+													<code code="121190"
 												codeSystem="1.2.840.10008.2.16.4"
 												displayName="Referenced Frames"/>
-												<entryRelationship typeCode="COMP">
-												<!-- Boundary Observation -->
-												<observation classCode="OBS" moodCode="EVN">
-												<templateId root="2.16.840.1.113883.10.20.6.2.11"/>
-												<code code="113036"
+													<entryRelationship typeCode="COMP">
+														<!-- Boundary Observation -->
+														<observation classCode="OBS" moodCode="EVN">
+															<templateId root="2.16.840.1.113883.10.20.6.2.11"/>
+															<code code="113036"
 												codeSystem="1.2.840.10008.2.16.4"
 												displayName="Group of Frames for Display"/>
-												<value xsi:type="INT" value="1"/>
-												</observation>
-												</entryRelationship>
+															<value xsi:type="INT" value="1"/>
+														</observation>
+													</entryRelationship>
 												</observation>
 											</entryRelationship>
 											<!-- Purpose of Reference -->
 											<entryRelationship typeCode="RSON">
 												<observation classCode="OBS" moodCode="EVN">
-												<templateId root="2.16.840.1.113883.10.20.6.2.9"/>
-												<code code="ASSERTION"
+													<templateId root="2.16.840.1.113883.10.20.6.2.9"/>
+													<code code="ASSERTION"
 												codeSystem="2.16.840.1.113883.5.4"/>
-												<value xsi:type="CD" code="121112"
+													<value xsi:type="CD" code="121112"
 												codeSystem="1.2.840.10008.2.16.4"
 												codeSystemName="DCM"
 												displayName="Source of Measurement">
-												<originalText>
-												<reference value="#SrceOfMeas2"/>
-												</originalText>
-												</value>
+														<originalText>
+															<reference value="#SrceOfMeas2"/>
+														</originalText>
+													</value>
 												</observation>
 											</entryRelationship>
 										</observation>
@@ -1209,6 +1187,7 @@ End of Reason for study Section
 		</structuredBody>
 	</component>
 </ClinicalDocument>
+
 
 ```
 
